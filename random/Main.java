@@ -2,10 +2,10 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
-  public static void main() {
+  public static void main(String args[]) {
     Scanner sc = new Scanner(System.in);
     int t = sc.nextInt();
-    for(int i = 0; i < n; i++) {
+    for(int i = 0; i < t; i++) {
       int n = sc.nextInt();
       int x = sc.nextInt();
       int stop[] = new int[n];
@@ -17,7 +17,9 @@ public class Main {
         if(j == 0) {
           ar[j] = stop[0] - 0;
         }
-        ar[j] = stop[j] - stop[j - 1];
+        else {
+          ar[j] = stop[j] - stop[j - 1];
+        }
       }
       ar[n] = 2 * (x - stop[n - 1]);
       Arrays.sort(ar);

@@ -1,29 +1,27 @@
+// https://codeforces.com/gym/307122/problem/A
 import java.util.Scanner;
-import java.util.Arrays;
+import java.lang.Math;
 
 public class Main {
   public static void main(String args[]) {
     Scanner sc = new Scanner(System.in);
-    int t = sc.nextInt();
-    for(int i = 0; i < t; i++) {
-      int n = sc.nextInt();
-      int x = sc.nextInt();
-      int stop[] = new int[n];
-      for(int j = 0; j < n; j++) {
-        stop[j] = sc.nextInt();
-      }
-      int ar[] = new int[n + 1];
-      for(int j = 0; j < n; j++) {
-        if(j == 0) {
-          ar[j] = stop[0] - 0;
+    int n = sc.nextInt();
+    StringBuilder s = new StringBuilder("");
+    for(int i = 0; i < n; i++) {
+      if (i == 0) {
+        s.append('a');
+      } else if(i == 1) {
+        s.append('a');
+      } else if(i == 2) {
+        s.append('b');
+      } else {
+        if(s.charAt(i - 2) == 'a') {
+        s.append('b');
+        } else if(s.charAt(i - 2) == 'b') {
+        s.append('a');
         }
-        else {
-          ar[j] = stop[j] - stop[j - 1];
-        }
       }
-      ar[n] = 2 * (x - stop[n - 1]);
-      Arrays.sort(ar);
-      System.out.println(ar[n]);
     }
+    System.out.println(s);
   }
 }
