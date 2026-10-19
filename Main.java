@@ -5,25 +5,24 @@ import java.math.BigInteger;
 
 
 public class Main {
-  static int checksum(BigInteger n) {
-    int sum = 0;
-    while(n.compareTo(BigInteger.ZERO) > 0) {
-      sum += n.mod(BigInteger.valueOf(10)).intValue();
-      n = n.divide(BigInteger.valueOf(10));
-    }
-    return sum;
-  }  
   public static void main(String args[]) {
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     int m = sc.nextInt();
-    String a = new String("45");
-    String b = new String("55");
-    while(checksum(new BigInteger(a)) < n  || checksum(new BigInteger(b)) < n) {
-      a = "4" + a;
-      b = "5" + b;
+    StringBuilder a = new StringBuilder("45");
+    StringBuilder b = new StringBuilder("55");
+    int suma = 9;
+    int sumb = 10;
+    while(suma < n  || sumb < n) {
+      a.reverse();
+      a.append("4");
+      a.reverse();
+      suma += 4;
+      b.reverse();
+      b.append("5");
+      sumb += 5;
     }
-    System.out.println(new BigInteger(a));
-    System.out.println(new BigInteger(b));
+    System.out.println(new BigInteger(a.toString()));
+    System.out.println(new BigInteger(b.toString()));
   }
 }
